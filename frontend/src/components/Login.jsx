@@ -53,7 +53,7 @@ export default function Login() {
           </button>
         </form>
         <p>
-          Don't have an account? <a href="/register">Register here</a>
+          Don't have an account? <a href="/auth/register">Register here</a>
         </p>
       </div>
     </div>
