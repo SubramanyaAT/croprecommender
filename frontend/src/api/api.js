@@ -1,7 +1,11 @@
 import axios from 'axios';
 
 // Use env variable in production, localhost in development
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Fallback to Render backend if env var not set in Vercel
+const API_URL = import.meta.env.VITE_API_URL || 
+  (typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
+    ? 'https://croprecommender-3.onrender.com/api' 
+    : 'http://localhost:5000/api');
 
 const apiClient = axios.create({
   baseURL: API_URL,
