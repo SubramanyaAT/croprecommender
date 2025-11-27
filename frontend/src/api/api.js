@@ -7,6 +7,12 @@ const API_URL = import.meta.env.VITE_API_URL ||
     ? 'https://croprecommender-3.onrender.com/api' 
     : 'http://localhost:5000/api');
 
+console.log('API Configuration:', {
+  hostname: typeof window !== 'undefined' ? window.location.hostname : 'N/A',
+  envVarSet: !!import.meta.env.VITE_API_URL,
+  API_URL: API_URL
+});
+
 const apiClient = axios.create({
   baseURL: API_URL,
   headers: {
